@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="ru.javabegin.training.web.beans.Author"%>
 <%@page import="ru.javabegin.training.web.beans.AuthorList"%>
 
@@ -35,12 +36,10 @@
             <div class="sidebar1">
                 <h4>Список авторов:</h4>
                 <ul class="nav">
-                    <% AuthorList authorList = new AuthorList();
-                        for (Author author : authorList.getAuthorList()) {
-                    %>
-                    <li><a href="#"><%=author.getName()%></a></li>
-
-                    <%}%>
+                    <jsp:useBean id = "authorList" class="ru.javabegin.training.web.beans.AuthorList" scope="session" />
+                        <c:forEach var="author" items="${authorList.getAuthorList()}">
+                            <li><a href="#"> ${author.name}</a></li>
+                        </c:forEach>
                 </ul>
                 <p>&nbsp;</p>
             </div>
@@ -55,10 +54,6 @@
 
 
                     
-        </div><!-- end .container -->
-                
+        </div><!-- end .container -->   
     </body>
-</body>
-
-</body>
 </html>

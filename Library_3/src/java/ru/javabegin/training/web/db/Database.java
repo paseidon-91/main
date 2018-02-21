@@ -17,7 +17,7 @@ public class Database {
     public static Connection getConnection() {
         try {
             ic = new InitialContext();
-            ds = (DataSource) ic.lookup("java:comp/env/jdbc/Library");
+            ds = (DataSource) ic.lookup("jdbc/Library");
             if (conn==null) {
                 conn = ds.getConnection();
             }

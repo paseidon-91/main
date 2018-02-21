@@ -74,7 +74,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("\n");
       out.write("            <div class=\"footer\">\n");
-      out.write("                Разработчик: Тимур Батыршинов, 2013 г\n");
+      out.write("                Разработчик: Алексагдр Пышкин, 2018 г\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("\n");
