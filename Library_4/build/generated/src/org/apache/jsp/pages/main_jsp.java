@@ -58,7 +58,6 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -96,11 +95,11 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <ul class=\"nav\">\n");
       out.write("                    ");
       ru.javabegin.training.web.beans.AuthorList authorList = null;
-      synchronized (session) {
-        authorList = (ru.javabegin.training.web.beans.AuthorList) _jspx_page_context.getAttribute("authorList", PageContext.SESSION_SCOPE);
+      synchronized (application) {
+        authorList = (ru.javabegin.training.web.beans.AuthorList) _jspx_page_context.getAttribute("authorList", PageContext.APPLICATION_SCOPE);
         if (authorList == null){
           authorList = new ru.javabegin.training.web.beans.AuthorList();
-          _jspx_page_context.setAttribute("authorList", authorList, PageContext.SESSION_SCOPE);
+          _jspx_page_context.setAttribute("authorList", authorList, PageContext.APPLICATION_SCOPE);
         }
       }
       out.write("\n");
