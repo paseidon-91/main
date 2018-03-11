@@ -63,18 +63,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 
             request.setCharacterEncoding("UTF-8");
-            String search_string = "";
-            if (request.getParameter("search_string") != null) {
-                search_string = request.getParameter("search_string");
-                session.setAttribute("search_string", search_string);
-            }else if (session.getAttribute("search_string")!=null) {
-                search_string = session.getAttribute("search_string").toString();
-            }
-            
-            
-            if (session.getAttribute("username") == null) {
-                session.setAttribute("username", request.getParameter("username"));
-            }
+          
 
         
       out.write("\n");
@@ -91,16 +80,14 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                </div>\n");
       out.write("                <div class=\"welcome\">\n");
-      out.write("                    <h5>Добор пожаловать, ");
-      out.print(session.getAttribute("username"));
+      out.write("                    <h5>Добро пожаловать, ");
+      out.print(request.getParameter("username") );
       out.write(" !</h5>\n");
       out.write("                    <h6><a href=\"../index.jsp\">Выход</a><h6>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"search_form\">\n");
       out.write("                                <form name=\"search_form\" method=\"GET\" action=\"books.jsp\">\n");
-      out.write("                                    <input type=\"text\" name=\"search_string\" value=\"");
-      out.print( search_string);
-      out.write("\" size=\"110\"/>\n");
+      out.write("                                    <input type=\"text\" name=\"search_string\" size=\"100\"/>\n");
       out.write("                                    <input class=\"search_button\" type=\"submit\" value=\"Поиск\"/>\n");
       out.write("                                    <select name=\"search_option\">\n");
       out.write("                                        <option>Название</option>\n");
@@ -128,7 +115,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
         }
       }
       out.write("\n");
-      out.write("     \n");
+      out.write("        <li><a href=\"books.jsp?genre_id=0\">Все книги</a></li>\n");
       out.write("        ");
 
             for (Genre genre : genreList.getGenreList()) {
@@ -136,8 +123,6 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        <li><a href=\"books.jsp?genre_id=");
       out.print(genre.getId());
-      out.write("&name=");
-      out.print(genre.getName());
       out.write('"');
       out.write('>');
       out.print(genre.getName());
@@ -188,6 +173,9 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      </div>");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<div style=\"clear: both;\">&nbsp;</div>\n");
       out.write("  </div><!-- end .container -->\n");
       out.write("\n");
       out.write("\n");

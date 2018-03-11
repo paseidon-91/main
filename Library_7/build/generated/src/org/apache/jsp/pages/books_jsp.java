@@ -83,14 +83,14 @@ public final class books_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                </div>\n");
       out.write("                <div class=\"welcome\">\n");
-      out.write("                    <h5>Добор пожаловать, ");
+      out.write("                    <h5>Добро пожаловать, ");
       out.print(request.getParameter("username") );
       out.write(" !</h5>\n");
       out.write("                    <h6><a href=\"../index.jsp\">Выход</a><h6>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"search_form\">\n");
       out.write("                                <form name=\"search_form\" method=\"GET\" action=\"books.jsp\">\n");
-      out.write("                                    <input type=\"text\" name=\"search_string\" size=\"110\"/>\n");
+      out.write("                                    <input type=\"text\" name=\"search_string\" size=\"100\"/>\n");
       out.write("                                    <input class=\"search_button\" type=\"submit\" value=\"Поиск\"/>\n");
       out.write("                                    <select name=\"search_option\">\n");
       out.write("                                        <option>Название</option>\n");
@@ -214,7 +214,8 @@ public final class books_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(list.size() );
       out.write(" </h5>\n");
       out.write("              ");
-  session.setAttribute("currentBookList", list);
+  
+                session.setAttribute("currentBookList", list);
                 for (Book book : list) {
 
     
